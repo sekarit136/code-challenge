@@ -1,0 +1,33 @@
+
+
+<mat-toolbar color="primary" class="items-toolbar">
+  <button mat-button routerLink="/dashboard">
+    <mat-icon>arrow_back</mat-icon>
+    <span style="margin-left:8px;">Back</span>
+  </button>
+  <span class="spacer"></span>
+  <span class="toolbar-title">Care Monitor Solutions</span>
+</mat-toolbar>
+
+<div class="items-bg">
+  <div class="items-list-container">
+
+    @if (loadingService.loading()) {
+      <div class="center animate-fade-in">
+        <mat-spinner></mat-spinner>
+      </div>
+    }
+
+      <div class="solutions-grid animate-fade-in">
+        @for (item of items | async; track item.id) {
+          <mat-card class="solution-card">
+            <div class="solution-header">
+              <mat-icon color="primary" class="solution-icon">{{item.icon}}</mat-icon>
+              <span class="solution-title">{{ item.name }}</span>
+            </div>
+            <div class="solution-desc">{{ item.description }}</div>
+          </mat-card>
+        }
+      </div>
+  </div>
+</div>

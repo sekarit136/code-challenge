@@ -1,0 +1,18 @@
+
+<mat-toolbar color="primary">
+  <span>Dashboard</span>
+  <span class="spacer"></span>
+  <button mat-button color="accent" (click)="logout()">Logout</button>
+</mat-toolbar>
+
+<div class="dashboard-container">
+  <mat-card class="dashboard-card animate-fade-in">
+    <h2 class="dashboard-title">Welcome, {{ email }}</h2>
+    <p class="dashboard-message">You are successfully logged in.</p>
+    <div class="dashboard-actions">
+      <button mat-raised-button color="primary" [routerLink]="['/list-items']" class="animate-fade-in">
+        Go to Items
+      </button>
+    </div>
+  </mat-card>
+</div>

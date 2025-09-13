@@ -1,0 +1,48 @@
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.dashboard-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  border-radius: 18px;
+  background: #fff;
+  animation: fadeIn 0.8s ease;
+}
+
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+.dashboard-message {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.dashboard-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
