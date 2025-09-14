@@ -77,17 +77,6 @@
   min-height: 120px;
 }
 
-.error-card {
-  width: 100%;
-  max-width: 400px;
-  margin: 2rem auto;
-  background: #ffcdd2;
-  color: #b71c1c;
-  text-align: center;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(183,28,28,0.08);
-}
-
 .animate-fade-in {
   animation: fadeIn 1s ease;
 }

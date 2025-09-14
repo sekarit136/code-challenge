@@ -3,11 +3,12 @@ import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 export const mockInterceptor: HttpInterceptorFn = (req, next) => {
-  // Mock Login API
+
   let password = '12345678';
+  let userName = 'care.monitor@gmail.com';
   if (req.url === '/api/login' && req.method === 'POST') {
     const body = req.body as { email: string; password: string };
-    if (body?.email && body?.password && body.password == password) {
+    if (body?.email && body?.password && body.email== userName  && body.password == password) {
       return of(
         new HttpResponse({
           status: 200,
@@ -28,6 +29,16 @@ export const mockInterceptor: HttpInterceptorFn = (req, next) => {
   }
 
   if (req.url === '/api/items' && req.method === 'GET') {
+    const authHeader = req.headers.get('Authorization');
+    const validToken = 'Bearer mock-jwt-token-123';
+    if (authHeader !== validToken) {
+      return of(
+        new HttpResponse({
+          status: 401,
+          body: { message: 'Invalid or missing token' }
+        })
+      ).pipe(delay(300));
+    }
     return of(
       new HttpResponse({
         status: 200,
